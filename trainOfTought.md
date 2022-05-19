@@ -8,3 +8,6 @@ Javascript
 - Verificar que la letra ingresada este en la palabra designada
 - Si la letra ingresada se encuentra en la palabra designada, colocarla en lugar del guion que corresponda
 - Si la letra ingresada no se encuentra en la palabra designada, colocarla visible en un costado
+
+---
+https://www.youtube.com/watch?v=0kR_DuUuX0A

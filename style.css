@@ -88,3 +88,8 @@ canvas {
     margin: 3px;
        
 }
+
+.letra-elegida {
+    background-color: red;
+    transition-duration: 100ms;
+}

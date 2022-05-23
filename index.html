@@ -11,15 +11,24 @@
 <body>
     <header>
         <div><img id="logo" src="img/logo.png" alt="juego del ahorcado"></div>
-        <div><h1>EL AHORCADO</h1></div>
+        <div><h1 id="title-header">EL AHORCADO</h1></div>
     </header>
     <main>
-        <div class="horca">
-            <canvas></canvas>
+        <section class="section-horca">
+            <img src="img/step0.png" alt="juego-del-ahorado">
             <div id="mensaje-final">Win/Lose</div>
-        </div>
-        <div class="letras-y-guiones">letras y guiones</div>
-        <div class="teclado">
+        </section>
+        <section class="section-letras-y-guiones">
+            <span class="letra-o-guion">E</span>
+            <span class="letra-o-guion">J</span>
+            <span class="letra-o-guion">E</span>
+            <span class="letra-o-guion">M</span>
+            <span class="letra-o-guion">P</span>
+            <span class="letra-o-guion">L</span>
+            <span class="letra-o-guion">O</span>
+            <span class="letra-o-guion">S</span>
+        </section>
+        <section class="section-teclado">
             <div class="fila-teclado">
                 <div class="tecla" data-key="81">Q</div>
                 <div class="tecla" data-key="87">W</div>
@@ -52,7 +61,7 @@
                 <div class="tecla" data-key="78">N</div>
                 <div class="tecla" data-key="77">M</div>
             </div>
-        </div>
+        </section>
     </main>
     <footer></footer>
     <script src="script.js"></script>

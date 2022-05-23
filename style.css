@@ -5,13 +5,15 @@ html {
     background-size: cover;
     display: flex;
     justify-content: center;
-    padding: 2%;
     font-family: Board;
+    height: 100vh;
+    align-items: center;
 }
 
 body {
-    height: 90%;
+    height: 95%;
     width: 90%;
+    margin: 0;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 3px;
@@ -20,28 +22,34 @@ body {
 header {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
-header > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #23512f;
-    margin: 0 3px;
-}
+header div {
+    margin: 0 8px;
+} 
 
 #logo {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
 }
+
+#title-header {
+    color: #23512f;
+    margin: 0;
+    font-size:35px;
+    letter-spacing: 4px;
+}
+
 main {
     height: 90%;
 }
 
-.horca {
-    height: 250px;
-    background-color: lightblue;
+.section-horca {
+    height: 50%;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 canvas {
@@ -61,14 +69,17 @@ canvas {
     transition-duration: 500ms;
 }
 
-.letras-y-guiones {
-    height: 100px;
-    background-color: lightcoral;
+.section-letras-y-guiones {
+    height: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 35px;
+
 }
 
-.teclado {
-    height: 200px;
-    background-color: lightgreen;
+.section-teclado {
+    height: 35%;
 }
 
 .fila-teclado {
@@ -86,10 +97,15 @@ canvas {
     border: solid black 1px;
     padding: 8px;
     margin: 3px;
+    box-shadow: 1px 1px 2px 1px #23512f
        
 }
 
 .letra-elegida {
     background-color: red;
     transition-duration: 100ms;
+}
+
+.letra-o-guion {
+    border-bottom: solid #23512f 3px;
 }

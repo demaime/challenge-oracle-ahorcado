@@ -108,4 +108,9 @@ canvas {
 
 .letra-o-guion {
     border-bottom: solid #23512f 3px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 5px;
+    width: 30px;
 }

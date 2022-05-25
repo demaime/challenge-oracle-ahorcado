@@ -1,131 +1,130 @@
-@font-face { font-family: Board; src: url('BoardMarker.ttf'); }
+@font-face {
+  font-family: Board;
+  src: url("BoardMarker.ttf");
+}
 
 html {
-    background: url("https://media.istockphoto.com/photos/blank-green-chalkboard-picture-id523740823?b=1&k=20&m=523740823&s=170667a&w=0&h=WVC0j49iVj35F9ACYA4MJevS08XwxXSYWT6Y_NmfLSw=");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    font-family: Board;
-    height: 100vh;
-    align-items: center;
+  background: url("https://media.istockphoto.com/photos/blank-green-chalkboard-picture-id523740823?b=1&k=20&m=523740823&s=170667a&w=0&h=WVC0j49iVj35F9ACYA4MJevS08XwxXSYWT6Y_NmfLSw=");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  font-family: Board;
+  height: 100vh;
+  align-items: center;
 }
 
 body {
-    height: 95%;
-    width: 90%;
-    margin: 0;
-    padding: 0;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px 3px;
-    transition-duration: 500ms;
-    position: relative;
+  height: 95%;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px 3px;
+  transition-duration: 500ms;
+  position: relative;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }
 
 header div {
-    margin: 0 8px;
-} 
-
+  margin: 0 8px;
+}
 
 #logo {
-    height: 45px;
-    width: 45px;
+  height: 45px;
+  width: 45px;
 }
 
 #title-header {
-    color: #23512f;
-    margin: 0;
-    font-size:35px;
-    letter-spacing: 4px;
+  color: #23512f;
+  margin: 0;
+  font-size: 35px;
+  letter-spacing: 4px;
 }
 
 #container {
-    background-color: white;
-    height: 100%;
-    margin: 0;
+  background-color: white;
+  height: 100%;
+  margin: 0;
 }
 
 main {
-    height: 90%;
+  height: 90%;
 }
 
 .section-horca {
-    height: 50%;
-    display: flex;
-    align-items: center;
+  height: 50%;
+  display: flex;
+  align-items: center;
 }
 
 #mensaje-final {
-    width: 100%;
-    height: 0;
-    background-color: lightcoral;
-    position: absolute;
-    top: 25%;
-    margin: auto;
-    opacity:0;
-    transition-duration: 500ms;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
+  width: 100%;
+  height: 0;
+  background-color: lightcoral;
+  position: absolute;
+  top: 25%;
+  margin: auto;
+  opacity: 0;
+  transition-duration: 500ms;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
 }
 
 .section-letras-y-guiones {
-    height: 15%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 35px;
-
+  height: 15%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 35px;
 }
 
 .section-teclado {
-    height: 35%;
+  height: 35%;
 }
 
 .fila-teclado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 33%;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33%;
 }
 
 .tecla {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid black 1px;
-    padding: 8px;
-    margin: 3px;
-    box-shadow: 1px 1px 2px 1px #23512f
-       
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black 1px;
+  padding: 8px;
+  margin: 3px;
+  box-shadow: 1px 1px 2px 1px #23512f;
 }
 
 .letra-elegida {
-    background-color: red;
-    transition-duration: 100ms;
+  background-color: red;
+  transition-duration: 100ms;
 }
 
 .letra-o-guion {
-    border-bottom: solid #23512f 3px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: bottom;
-    margin: 5px;
-    width: 30px;
+  border-bottom: solid #23512f 3px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 5px;
+  width: 30px;
 }
 
 .acierto {
-    background-color: lightcoral;
+  background-color: lightcoral;
 }
 
 .fallo {
-    background-color: mediumaquamarine;
+  background-color: mediumaquamarine;
 }

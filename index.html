@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="pantalla-inicio" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,57 +8,16 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ahorcado</title>
   </head>
-  <div id="mensaje-final">Win/Lose</div>
-  <body>
-    <div id="container">
-      <header>
-        <div><img id="logo" src="img/logo.png" alt="juego del ahorcado" /></div>
-        <div><h1 id="title-header">EL AHORCADO</h1></div>
-        <button id="btn">Palabra</button>
-      </header>
-      <main id="main">
-        <section class="section-horca">
-          <img id="horca" src="img/step0.png" alt="juego-del-ahorado" />
-        </section>
-        <section class="section-letras-y-guiones">
-          <p id="palabra-a-adivinar" style="margin: 0"></p>
-        </section>
-        <section class="section-teclado">
-          <div class="fila-teclado">
-            <button class="tecla" data-key="81">Q</button>
-            <button class="tecla" data-key="87">W</button>
-            <button class="tecla" data-key="69">E</button>
-            <button class="tecla" data-key="82">R</button>
-            <button class="tecla" data-key="84">T</button>
-            <button class="tecla" data-key="89">Y</button>
-            <button class="tecla" data-key="85">U</button>
-            <button class="tecla" data-key="73">I</button>
-            <button class="tecla" data-key="79">O</button>
-            <button class="tecla" data-key="80">P</button>
-          </div>
-          <div class="fila-teclado">
-            <button class="tecla" data-key="65">A</button>
-            <button class="tecla" data-key="83">S</button>
-            <button class="tecla" data-key="68">D</button>
-            <button class="tecla" data-key="70">F</button>
-            <button class="tecla" data-key="71">G</button>
-            <button class="tecla" data-key="72">H</button>
-            <button class="tecla" data-key="74">J</button>
-            <button class="tecla" data-key="75">K</button>
-            <button class="tecla" data-key="76">L</button>
-          </div>
-          <div class="fila-teclado">
-            <button class="tecla" data-key="90">Z</button>
-            <button class="tecla" data-key="88">X</button>
-            <button class="tecla" data-key="67">C</button>
-            <button class="tecla" data-key="86">V</button>
-            <button class="tecla" data-key="66">B</button>
-            <button class="tecla" data-key="78">N</button>
-            <button class="tecla" data-key="77">M</button>
-          </div>
-        </section>
-      </main>
+  <body id="body-inicio">
+    <header>
+      <div><img id="logo" src="img/logo.png" alt="juego del ahorcado" /></div>
+      <div><h1 id="title-header">EL AHORCADO</h1></div>
+    </header>
+    <div id="container-inicio">
+      <a href="juego.html"
+        ><button class="btn-lobby" id="juego-nuevo">Juego nuevo</button></a
+      >
+      <button class="btn-lobby">Agregar palabra</button>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>

@@ -181,13 +181,16 @@ const palabrasDisponibles = [
   "ZANJA",
 ];
 const contenedorPalabra = document.getElementById("palabra-a-adivinar");
-const btn = document.getElementById("btn");
 const teclas = Array.from(document.querySelectorAll(".tecla"));
 const horca = document.getElementById("horca");
 let palabraElegida;
 let cantidadDeAciertos = 0;
 let cantidadDeErrores = 0;
 const mensajeFinal = document.getElementById("mensaje-final");
+const resultado = document.getElementById("resultado");
+const finalizacion = document.getElementById("finalizacion");
+const btnIniciarJuego = document.getElementById("juego-nuevo");
+const btnVolverAJugar = document.getElementById("volver-a-jugar");
 
 function animarTecla(e) {
   if (e.keyCode < 65 || e.keyCode > 90) return;
@@ -242,23 +245,38 @@ function seleccionarTecla(e) {
     cantidadDeErrores++;
   }
 
-  if (cantidadDeErrores === 6) {
-    const container = document.getElementById("container");
+  if (cantidadDeErrores > 6) {
+    const container = document.getElementById("container-juego");
     container.style.opacity = 0.1;
     mensajeFinal.style.opacity = 1;
     mensajeFinal.style.height = "50%";
-    mensajeFinal.innerHTML = "DERROTA! Intenta nuevamente";
-    horca.src = "./img/step0.png";
+    mensajeFinal.style.backgroundColor = "lightcoral";
+    resultado.innerHTML = "DERROTA! Intenta nuevamente";
+    finalizacion.innerHTML = "La palabra era " + palabraElegida;
+    horca.src = "./img/step7.png";
+    teclas.forEach((tecla) => (tecla.disabled = true));
+    return;
+  } else if (cantidadDeAciertos === letrasEnJuego.length) {
+    const container = document.getElementById("container-juego");
+    container.style.opacity = 0.1;
+    mensajeFinal.style.opacity = 1;
+    mensajeFinal.style.height = "50%";
+    mensajeFinal.style.backgroundColor = "mediumaquamarine";
+    resultado.innerHTML = "VICTORIA! Lo lograste";
+    finalizacion.innerHTML = "Adivinaste la palabra";
+    teclas.forEach((tecla) => (tecla.disabled = true));
+    return;
   }
+
   acierto
-    ? teclaSeleccionada.classList.add("fallo")
-    : teclaSeleccionada.classList.add("acierto");
+    ? teclaSeleccionada.classList.add("acierto")
+    : teclaSeleccionada.classList.add("fallo");
 
   horca.src = `./img/step${cantidadDeErrores}.png`;
 
-  console.table(cantidadDeAciertos, cantidadDeErrores);
+  console.table(cantidadDeAciertos, cantidadDeErrores); // eliminar esta linea al finalizar
 }
 
 teclas.forEach((tecla) => tecla.addEventListener("click", seleccionarTecla));
-btn.addEventListener("click", palabraRandom);
+btnVolverAJugar.addEventListener("click", palabraRandom);
 window.addEventListener("keydown", animarTecla);

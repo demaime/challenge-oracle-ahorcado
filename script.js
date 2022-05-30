@@ -183,14 +183,14 @@ const palabrasDisponibles = [
 const contenedorPalabra = document.getElementById("palabra-a-adivinar");
 const teclas = Array.from(document.querySelectorAll(".tecla"));
 const horca = document.getElementById("horca");
-let palabraElegida;
-let cantidadDeAciertos = 0;
-let cantidadDeErrores = 0;
 const mensajeFinal = document.getElementById("mensaje-final");
 const resultado = document.getElementById("resultado");
 const finalizacion = document.getElementById("finalizacion");
 const btnIniciarJuego = document.getElementById("juego-nuevo");
 const btnVolverAJugar = document.getElementById("volver-a-jugar");
+let palabraElegida;
+let cantidadDeAciertos = 0;
+let cantidadDeErrores = 0;
 
 function animarTecla(e) {
   if (e.keyCode < 65 || e.keyCode > 90) return;
@@ -201,15 +201,17 @@ function animarTecla(e) {
       key.classList.remove("letra-elegida");
     }, 100);
   }
+  // seleccionarTecla(e);
 }
 
 function palabraRandom() {
   contenedorPalabra.innerHTML = "";
   horca.src = "./img/step0.png";
-  aciertos = 0;
-  errores = 0;
   const cantidadPalabras = palabrasDisponibles.length;
   const valorRandom = Math.floor(Math.random() * cantidadPalabras);
+  aciertos = 0;
+  errores = 0;
+  //crear una funcion para la palabra random, y la funcion iniciar juego va a chequear si hay algo en el local storage, y si no, ejecuta palabra random
   palabraElegida = palabrasDisponibles[valorRandom];
 
   for (let i = 0; i < palabraElegida.length; i++) {
@@ -246,6 +248,7 @@ function seleccionarTecla(e) {
   }
 
   if (cantidadDeErrores > 6) {
+    //condicion de derrota
     const container = document.getElementById("container-juego");
     container.style.opacity = 0.1;
     mensajeFinal.style.opacity = 1;
@@ -257,6 +260,7 @@ function seleccionarTecla(e) {
     teclas.forEach((tecla) => (tecla.disabled = true));
     return;
   } else if (cantidadDeAciertos === letrasEnJuego.length) {
+    // condicion de victoria
     const container = document.getElementById("container-juego");
     container.style.opacity = 0.1;
     mensajeFinal.style.opacity = 1;

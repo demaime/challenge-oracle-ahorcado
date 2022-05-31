@@ -188,6 +188,7 @@ const resultado = document.getElementById("resultado");
 const finalizacion = document.getElementById("finalizacion");
 const btnIniciarJuego = document.getElementById("juego-nuevo");
 const btnVolverAJugar = document.getElementById("volver-a-jugar");
+
 let palabraElegida;
 let cantidadDeAciertos = 0;
 let cantidadDeErrores = 0;
@@ -204,15 +205,13 @@ function animarTecla(e) {
   // seleccionarTecla(e);
 }
 
-function palabraRandom() {
+function iniciarJuego() {
+  const palabraLocalStorage = localStorage.getItem("palabra");
   contenedorPalabra.innerHTML = "";
   horca.src = "./img/step0.png";
-  const cantidadPalabras = palabrasDisponibles.length;
-  const valorRandom = Math.floor(Math.random() * cantidadPalabras);
   aciertos = 0;
   errores = 0;
-  //crear una funcion para la palabra random, y la funcion iniciar juego va a chequear si hay algo en el local storage, y si no, ejecuta palabra random
-  palabraElegida = palabrasDisponibles[valorRandom];
+  palabraElegida = palabraLocalStorage || palabraRandom();
 
   for (let i = 0; i < palabraElegida.length; i++) {
     const span = document.createElement("span");
@@ -225,7 +224,14 @@ function palabraRandom() {
     tecla.classList.remove("fallo");
     tecla.classList.remove("acierto");
   });
+}
+
+function palabraRandom() {
+  const cantidadPalabras = palabrasDisponibles.length;
+  const valorRandom = Math.floor(Math.random() * cantidadPalabras);
+  palabraElegida = palabrasDisponibles[valorRandom];
   console.log(palabraElegida); //eliminar esta linea al finalizar
+  return palabraElegida;
 }
 
 function seleccionarTecla(e) {
@@ -258,6 +264,7 @@ function seleccionarTecla(e) {
     finalizacion.innerHTML = "La palabra era " + palabraElegida;
     horca.src = "./img/step7.png";
     teclas.forEach((tecla) => (tecla.disabled = true));
+    localStorage.clear();
     return;
   } else if (cantidadDeAciertos === letrasEnJuego.length) {
     // condicion de victoria
@@ -269,6 +276,7 @@ function seleccionarTecla(e) {
     resultado.innerHTML = "VICTORIA! Lo lograste";
     finalizacion.innerHTML = "Adivinaste la palabra";
     teclas.forEach((tecla) => (tecla.disabled = true));
+    localStorage.clear();
     return;
   }
 

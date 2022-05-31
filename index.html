@@ -17,7 +17,43 @@
       <a href="juego.html"
         ><button class="btn-lobby" id="juego-nuevo">Juego nuevo</button></a
       >
-      <button class="btn-lobby">Agregar palabra</button>
+      <button class="btn-lobby" id="btn-agregar-palabra">
+        Agregar palabra
+      </button>
+    </div>
+    <div class="ingresar-palabra">
+      <p style="margin: 0; padding: 0">Ingresa la palabra para jugar</p>
+      <ul class="reglas">
+        <li>La palabra no puede tener más de 8 caracteres de longitud</li>
+        <li>Solo puede usar letras MAYÚSCULAS</li>
+        <li>No están permitidos los números ni caracteres especiales</li>
+      </ul>
+      <input
+        type="text"
+        id="input-nueva-palabra"
+        placeholder="nueva palabra"
+        maxlength="8"
+      />
+      <a href="./juego.html"
+        ><button id="comenzar-con-palabra">Comenzar!</button></a
+      >
     </div>
   </body>
+  <script>
+    const btnAgregarPalabra = document.getElementById("btn-agregar-palabra");
+    const btnComenzarConPalabra = document.getElementById(
+      "comenzar-con-palabra"
+    );
+    const inputPalabra = document.getElementById("input-nueva-palabra");
+    const ingresarPalabra = document.querySelector(".ingresar-palabra");
+
+    btnAgregarPalabra.addEventListener("click", () => {
+      ingresarPalabra.style.zIndex = 1;
+      ingresarPalabra.style.opacity = 1;
+    });
+
+    btnComenzarConPalabra.addEventListener("click", () =>
+      localStorage.setItem("palabra", inputPalabra.value.toUpperCase())
+    );
+  </script>
 </html>

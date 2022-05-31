@@ -193,18 +193,6 @@ let palabraElegida;
 let cantidadDeAciertos = 0;
 let cantidadDeErrores = 0;
 
-function animarTecla(e) {
-  if (e.keyCode < 65 || e.keyCode > 90) return;
-  else {
-    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
-    key.classList.add("letra-elegida");
-    setTimeout(() => {
-      key.classList.remove("letra-elegida");
-    }, 100);
-  }
-  // seleccionarTecla(e);
-}
-
 function iniciarJuego() {
   const palabraLocalStorage = localStorage.getItem("palabra");
   contenedorPalabra.innerHTML = "";
@@ -234,15 +222,30 @@ function palabraRandom() {
   return palabraElegida;
 }
 
-function seleccionarTecla(e) {
-  const letrasEnJuego = Array.from(document.querySelectorAll(".letra-o-guion"));
+function teclearLetra(e) {
+  if (e.which < 65 || e.which > 90) return;
+  else {
+    const teclaSeleccionada = document.querySelector(
+      `button[data-key="${e.which}"]`
+    );
+    const letraSeleccionada = teclaSeleccionada.innerHTML;
+    apostarLetra(letraSeleccionada, teclaSeleccionada);
+  }
+}
+
+function clickearLetra(e) {
   const teclaSeleccionada = e.target;
   const letraSeleccionada = teclaSeleccionada.innerHTML;
   teclaSeleccionada.disabled = true;
+  apostarLetra(letraSeleccionada, teclaSeleccionada);
+}
+
+function apostarLetra(letraSeleccionada, teclaSeleccionada) {
+  const letrasEnJuego = Array.from(document.querySelectorAll(".letra-o-guion"));
   let acierto = false;
 
   for (let i = 0; i < palabraElegida.length; i++) {
-    if (letraSeleccionada == palabraElegida[i]) {
+    if (letraSeleccionada === palabraElegida[i]) {
       letrasEnJuego[i].innerHTML = letraSeleccionada;
       cantidadDeAciertos++;
       acierto = true;
@@ -289,6 +292,6 @@ function seleccionarTecla(e) {
   console.table(cantidadDeAciertos, cantidadDeErrores); // eliminar esta linea al finalizar
 }
 
-teclas.forEach((tecla) => tecla.addEventListener("click", seleccionarTecla));
+teclas.forEach((tecla) => tecla.addEventListener("click", clickearLetra));
+window.addEventListener("keydown", teclearLetra);
 btnVolverAJugar.addEventListener("click", palabraRandom);
-window.addEventListener("keydown", animarTecla);

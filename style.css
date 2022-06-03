@@ -46,36 +46,49 @@ a:visited {
 
 .ingresar-palabra {
   width: 80%;
-  height: 40%;
+  height: 60%;
   position: fixed;
   display: flex;
-  top: 25%;
+  top: 20%;
   left: 10%;
   background-color: #276439;
   opacity: 0;
-  /* revisar aca, no funciona */
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   font-size: 25px;
-  text-align: center;
+
   z-index: -1;
   transition-duration: 200ms;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px 0px lightgrey;
 }
 
-#input-nueva-palabra {
+.ingresar-palabra p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-shadow: white 0px 0px 5px;
+}
+#input-agregar-palabra {
   font-family: inherit;
-  height: 15%;
   font-size: 25px;
   text-align: center;
   width: 75%;
 }
 
 .reglas {
-  font-size: 10px;
+  font-family: cursive;
+  font-size: 15px;
   color: white;
-  margin: 0 5%;
+  margin: 0px 3%;
   padding-left: 5%;
+  list-style-type: "➡";
+  text-align: center;
+}
+
+.reglas li {
+  margin: 10px 0px;
 }
 
 #comenzar-con-palabra {
@@ -86,6 +99,7 @@ a:visited {
   font-family: inherit;
   box-shadow: 0px 0px 4px 2px;
   letter-spacing: 1px;
+  transition-duration: 500ms;
 }
 
 li {
@@ -254,4 +268,10 @@ main {
 
 .acierto {
   background-color: mediumaquamarine;
+}
+
+#comenzar-con-palabra[disabled] {
+  background-color: #838383;
+  color: #666666;
+  cursor: not-allowed;
 }

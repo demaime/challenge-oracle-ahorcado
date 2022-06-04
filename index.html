@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ahorcado</title>
   </head>
-  <body id="body-inicio">
+  <body id="body-inicio" onLoad="vaciarStorage()">
     <header>
       <div><img id="logo" src="img/logo.png" alt="juego del ahorcado" /></div>
       <div><h1 id="title-header">EL AHORCADO</h1></div>
@@ -49,16 +49,28 @@
     const linkJugar = document.getElementById("link-jugar");
     const reglaUno = document.getElementById("regla-1");
     const reglaDos = document.getElementById("regla-2");
-    const reglaTres = document.getElementById("regla-3");
+    // const regexLetras = /^[_A-zA-Z]*((-|\s)*[_A-zA-Z])*$/g;
+    const regexLetras = /^[a-zA-Z]+$/i;
+    // const regexNumeros = /\d/;
 
     btnComenzar.disabled = true;
 
+    function vaciarStorage() {
+      localStorage.clear();
+    }
+
     function habilitarComienzo() {
-      if (inputPalabra.value == "") {
+      const contenidoInput = inputPalabra.value;
+      if (contenidoInput == "") {
         btnComenzar.disabled = true;
-      } else if (inputPalabra.value != "") {
+      } else if (regexLetras.test(contenidoInput)) {
         btnComenzar.disabled = false;
+      } else {
+        btnComenzar.disabled = true;
       }
+      // } else if (regexNumeros.test(contenidoInput)) {
+      //   btnComenzar.disabled = true;
+      //   reglaDos.style.color = "orange";
     }
     btnAgregarPalabra.addEventListener("click", () => {
       ingresarPalabra.style.zIndex = 1;

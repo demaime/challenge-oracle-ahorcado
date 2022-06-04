@@ -28,7 +28,7 @@
           La palabra debe tener entre 1 y 8 caracteres de longitud
         </li>
         <li id="regla-2">
-          No están permitidos los números ni caracteres especiales
+          No estan permitidos los números, espacios ni caracteres especiales
         </li>
       </ul>
       <input
@@ -49,9 +49,7 @@
     const linkJugar = document.getElementById("link-jugar");
     const reglaUno = document.getElementById("regla-1");
     const reglaDos = document.getElementById("regla-2");
-    // const regexLetras = /^[_A-zA-Z]*((-|\s)*[_A-zA-Z])*$/g;
     const regexLetras = /^[a-zA-Z]+$/i;
-    // const regexNumeros = /\d/;
 
     btnComenzar.disabled = true;
 
@@ -63,15 +61,19 @@
       const contenidoInput = inputPalabra.value;
       if (contenidoInput == "") {
         btnComenzar.disabled = true;
+        reglaUno.classList.add("no-cumple");
+        reglaDos.classList.remove("no-cumple");
       } else if (regexLetras.test(contenidoInput)) {
+        reglaDos.classList.remove("no-cumple");
+        reglaUno.classList.remove("no-cumple");
         btnComenzar.disabled = false;
       } else {
+        reglaDos.classList.add("no-cumple");
+        reglaUno.classList.remove("no-cumple");
         btnComenzar.disabled = true;
       }
-      // } else if (regexNumeros.test(contenidoInput)) {
-      //   btnComenzar.disabled = true;
-      //   reglaDos.style.color = "orange";
     }
+
     btnAgregarPalabra.addEventListener("click", () => {
       ingresarPalabra.style.zIndex = 1;
       ingresarPalabra.style.opacity = 1;

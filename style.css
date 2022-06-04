@@ -45,6 +45,7 @@ a:visited {
 }
 
 .ingresar-palabra {
+  padding: 10px;
   width: 80%;
   height: 60%;
   position: fixed;
@@ -57,7 +58,6 @@ a:visited {
   justify-content: space-evenly;
   align-items: center;
   font-size: 25px;
-
   z-index: -1;
   transition-duration: 200ms;
   border-radius: 5px;
@@ -70,6 +70,7 @@ a:visited {
   padding: 0;
   text-shadow: white 0px 0px 5px;
 }
+
 #input-agregar-palabra {
   font-family: inherit;
   font-size: 25px;
@@ -78,17 +79,23 @@ a:visited {
 }
 
 .reglas {
-  font-family: cursive;
+  font-family: monospace;
   font-size: 15px;
   color: white;
-  margin: 0px 3%;
-  padding-left: 5%;
+  margin: 3% 0px;
   list-style-type: "➡";
   text-align: center;
+  text-indent: 5%;
 }
 
 .reglas li {
   margin: 10px 0px;
+  transition-duration: 300ms;
+}
+
+.no-cumple {
+  color: #f37979;
+  font-weight: bold;
 }
 
 #comenzar-con-palabra {
@@ -102,8 +109,10 @@ a:visited {
   transition-duration: 500ms;
 }
 
-li {
-  margin: 3px 0;
+#comenzar-con-palabra[disabled] {
+  background-color: #838383;
+  color: #666666;
+  cursor: not-allowed;
 }
 
 #pantalla-juego {
@@ -142,7 +151,6 @@ header div {
   height: 45px;
   width: 45px;
 }
-
 #title-header {
   color: #23512f;
   margin: 0;
@@ -165,13 +173,14 @@ header div {
 }
 
 main {
-  height: 90%;
+  height: 95%;
 }
 
 .section-horca {
   height: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #mensaje-final {
@@ -190,6 +199,14 @@ main {
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+}
+#resultado {
+  padding: 10px;
+}
+
+#finalizacion {
+  font-family: monospace;
+  font-size: 20px;
 }
 
 #volver-a-jugar {
@@ -243,8 +260,11 @@ main {
   justify-content: center;
   border: solid black 1px;
   padding: 8px;
-  margin: 3px;
+  margin: 10px;
   box-shadow: 1px 1px 2px 1px #23512f;
+  height: 65px;
+  width: 55px;
+  font-size: 20px;
 }
 
 .letra-elegida {
@@ -270,8 +290,11 @@ main {
   background-color: mediumaquamarine;
 }
 
-#comenzar-con-palabra[disabled] {
-  background-color: #838383;
-  color: #666666;
-  cursor: not-allowed;
+@media only screen and (max-width: 600px) {
+  .tecla {
+    margin: 5px;
+    height: 35px;
+    width: 30px;
+    font-size: 12px;
+  }
 }

@@ -35,7 +35,7 @@ const palabrasDisponibles = [
   "ESMALTE",
   "ESFERA",
   "ESPEJO",
-  "EXTRAÑO",
+  "EXTREMO",
   "EJEMPLO",
   "EJERCITO",
   "ESQUEMA",

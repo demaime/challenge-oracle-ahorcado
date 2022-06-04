@@ -69,18 +69,20 @@ a:visited {
   margin: 0;
   padding: 0;
   text-shadow: white 0px 0px 5px;
+  font-size: 40px;
 }
 
 #input-agregar-palabra {
   font-family: inherit;
-  font-size: 25px;
+  font-size: 45px;
   text-align: center;
   width: 75%;
+  height: 65px;
 }
 
 .reglas {
   font-family: monospace;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
   margin: 3% 0px;
   list-style-type: "➡";
@@ -296,5 +298,19 @@ main {
     height: 35px;
     width: 30px;
     font-size: 12px;
+  }
+
+  .ingresar-palabra p {
+    font-size: 25px;
+  }
+
+  #input-agregar-palabra {
+    font-size: 20px;
+    width: 75%;
+    height: 40px;
+  }
+
+  .reglas {
+    font-size: 15px;
   }
 }
